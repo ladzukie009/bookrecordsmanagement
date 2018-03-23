@@ -1,6 +1,6 @@
 # README
 
-# Book Records Management System
+# Simple Book Records Management System
 Simple Book Record Management System
 
 This README would normally document whatever steps are necessary to get the
