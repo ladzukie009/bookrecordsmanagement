@@ -1,0 +1,52 @@
+<% provide(:title, "Home") %>
+
+<div class="container-index">
+
+		<% if notice %><p class="notice"><%= notice %></p><% end %>
+	  <% if alert %><p class="alert"><%= alert %></p><% end %>
+
+	<div style="float:right;">
+		<% if user_signed_in? %>
+	  	<p>Welcome, <%= current_user.email %></p>
+	  	<%= link_to 'Profile',edit_user_registration_path %> | 
+	  	<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+		<% else %>
+	  	<p>You are not signed in.</p>
+	  	<%= link_to 'Login', new_user_session_path %>
+		<% end %>
+
+	</div>
+	
+	<h3>Book Records:</h3>
+
+	<%= link_to 'Create new record', new_book_path %>
+
+	<table class="table table-bordered table-hover">
+		<thead>
+			<th>Name of Book</th>
+			<th>Author Name</th>
+			<th>Year Published</th>
+			<th>Publisher</th>
+			<th>Actions</th>
+		</thead>
+
+	<% @books.each do |book| %>
+		<tbody>
+			<td><%= (book.name).titleize %></td>
+			<td><%= (book.author_name).titleize %></td>
+			<td><%= date_formatter(book.year_published) %></td>
+			<td><%= (book.publisher).titleize %></td>
+			<td>
+					<%= link_to 'Show',book_path(book) %> 
+					<% if user_signed_in? %> |
+					<%= link_to 'Edit',edit_book_path(book) %> |
+					<%= link_to 'Delete',book,method: :delete, data: {confirm: "Are you sure you want to delete this record?"} %>
+					<% end %>
+			</td>
+		</tbody>
+	<% end %>
+	</table>
+
+	<%= will_paginate @books %>
+
+</div>

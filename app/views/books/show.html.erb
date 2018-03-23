@@ -1,0 +1,31 @@
+<% provide(:title, "Show") %>
+
+<div class="container-index">
+
+	<h3>Book</h3>
+
+	<table class="table table-bordered">
+		
+		<thead>
+			<tr>
+				<th>Name of Book</th>
+				<th>Author Name</th>
+				<th>Year Published</th>
+				<th>Publisher</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><%= @book.name %></td>
+				<td><%= @book.author_name %></td>
+				<td><%= date_formatter(@book.year_published) %></td>
+				<td><%= @book.publisher %></td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<%= link_to 'Back',books_path %>
+
+</div>

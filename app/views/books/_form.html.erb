@@ -1,0 +1,26 @@
+<div class="form-group1">
+	
+	<%= form_for @book do |book| %>
+		
+		<%= book.label :name, class: "control-label" %>
+		<%= book.text_field :name, class: "form-control",placeholder: "Name of book" %>
+
+
+		<%= book.label :author_name, class: "control-label" %>
+		<%= book.text_field :author_name, class: "form-control", placeholder: "Author name" %>
+
+
+
+		<%= book.label :year_published, class: "control-label"%>
+		<%= book.date_field :year_published, class: "form-control", id: "date_field" %>
+
+
+		<%= book.label :publisher, class: "control-label" %>
+		<%= book.text_field :publisher, class: "form-control", placeholder: "Publisher" %><br><br>
+
+		<%= book.submit :submit, class: "btn btn-success btn-block" %>
+
+	<% end %><br>
+	<%= link_to 'Back', books_path %>
+
+</div>
