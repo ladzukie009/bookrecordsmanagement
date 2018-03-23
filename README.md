@@ -1,12 +1,13 @@
 # README
 
-# week1task
+# Book Records Management System
 Simple Book Record Management System
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
+
 
 * Ruby version
 
